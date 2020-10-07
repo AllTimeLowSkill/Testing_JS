@@ -9,7 +9,7 @@ class Task{
     task_date = ''
     task_end = ''
     task_desc = ''
-    color = ''
+    color = 'black'
 
     create_task(){
         const name_task = document.querySelector('#name_task')
@@ -21,9 +21,13 @@ class Task{
         this.task_date = date_task.value
         this.task_end = end_task.value
         this.task_desc = desc_task.value
+
+        if(this.task_end < this.task_date){
+            alert('Введите корректную дату')
+        }else{
+            this.render()
+        }
  
-        this.render()
-        
     }
 
     render(){
@@ -54,19 +58,19 @@ class Task{
                 this.color = 'green'
                 this.isSuccess = true
                 div.style.backgroundColor = this.color
+                nav_title.style.color = this.color
             }else{
                 this.color = 'white'
                 this.isSuccess = false
                 div.style.backgroundColor = this.color
+                nav_title.style.color = "black"
             }
         }
-
 
         remove_task.onclick = () => {
             nav_title.remove()
             li.remove()
         }
-
 
         div.append(check_status)
         div.append(remove_task)
@@ -77,16 +81,14 @@ class Task{
         const task_date_end = new Date(this.task_end)
         if (`${task_date_end.getFullYear()}-${task_date_end.getMonth()}-${task_date_end.getDay()}` < `${date_now.getFullYear()}-${date_now.getMonth()}-${date_now.getDay()}`) {
             div.style.backgroundColor = "red"
+            nav_title.style.color = "red"
             check_status.remove()
         }
 
-    }
-
-     
+    }    
 }
 
 create_task_btn.onclick = () => {
     const task = new Task()
-    
     task.create_task()
 }
