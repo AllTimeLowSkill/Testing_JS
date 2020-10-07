@@ -2,28 +2,29 @@ const create_task_btn = document.querySelector('.create_task_btn')
 const task_list = document.querySelector('.main_task_list')
 const nav_list_task = document.querySelector('.nav_list_task')
 
-const task = {
-    task_name: '',
-    task_date: '',
-    task_end: '',
-    task_desc: '',
-    color: '',
+
+class Task{
+
+    task_name = ''
+    task_date = ''
+    task_end = ''
+    task_desc = ''
+    color = ''
 
     create_task(){
-       const name_task = document.querySelector('#name_task')
-       const date_task = document.querySelector('#date_task')
-       const end_task = document.querySelector('#end_task')
-       const desc_task = document.querySelector('#desc_task')
-       
-       this.task_name = name_task.value
-       this.task_date = date_task.value
-       this.task_end = end_task.value
-       this.task_desc = desc_task.value
-
-       this.render()
-       
-    },
-
+        const name_task = document.querySelector('#name_task')
+        const date_task = document.querySelector('#date_task')
+        const end_task = document.querySelector('#end_task')
+        const desc_task = document.querySelector('#desc_task')
+        
+        this.task_name = name_task.value
+        this.task_date = date_task.value
+        this.task_end = end_task.value
+        this.task_desc = desc_task.value
+ 
+        this.render()
+        
+    }
 
     render(){
         const li = document.createElement('li')
@@ -36,7 +37,11 @@ const task = {
             <p>Дата окончания: ${this.task_end}</p>
             <p>Описание: ${this.task_desc}</p>
         `
-        nav_list_task.innerHTML += `<li class="el_nav_list_task">${this.task_name}</li>`
+
+        const nav_title = document.createElement('li')
+        nav_title.textContent = this.task_name
+
+        nav_list_task.append(nav_title)
 
         const check_status = document.createElement('input')
         check_status.type = "checkbox"
@@ -58,14 +63,7 @@ const task = {
 
 
         remove_task.onclick = () => {
-            const el_nav_list = document.querySelectorAll('.el_nav_list_task')
-
-            el_nav_list.forEach(el => {
-                if(el.textContent === this.task_name){
-                    el.remove()
-                }
-            })
-
+            nav_title.remove()
             li.remove()
         }
 
@@ -76,17 +74,19 @@ const task = {
         task_list.append(li)
 
         let date_now = new Date()
-        task_date_end = new Date(this.task_end)
+        const task_date_end = new Date(this.task_end)
         if (`${task_date_end.getFullYear()}-${task_date_end.getMonth()}-${task_date_end.getDay()}` < `${date_now.getFullYear()}-${date_now.getMonth()}-${date_now.getDay()}`) {
             div.style.backgroundColor = "red"
             check_status.remove()
         }
 
     }
-    
+
+     
 }
 
 create_task_btn.onclick = () => {
-
+    const task = new Task()
+    
     task.create_task()
 }
