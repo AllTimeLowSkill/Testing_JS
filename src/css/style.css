@@ -1,0 +1,135 @@
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+header .header_logo_block a{
+    text-decoration: none;
+}
+
+header .header_nav_block ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    list-style: none;
+}
+
+header .header_nav_block ul li{
+    margin-right: 20px;
+}
+
+header .header_nav_block ul li a{
+    text-decoration: none;
+    color: black
+}
+
+
+.wrapper{
+    margin-top: 10px;
+    padding: 5px;
+
+    display: flex;
+    min-height: 700px;
+
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+nav{
+    min-width: 200px;
+    min-height: 100%;
+    
+    
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    
+}
+
+nav ul{
+    list-style: none;
+}
+
+nav ul li a{
+    text-decoration: none;
+}
+
+.main_list_main_page{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: space-between;
+
+    min-height: 100%;
+
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+    margin-left: 10px;
+}
+
+.main_list_main_page .main_tasks_block ul{
+    list-style: none;
+}
+
+.main_list_main_page .main_create_task{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    min-width: 100%;
+}
+
+.main_list_main_page .main_create_task .main_create_task_button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    width: 50px;
+    height: 50px;
+    
+    border: 1px solid black;
+    border-radius: 50% 50%;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.7);
+
+    margin-right: 30px;
+}
+
+.main_list_main_page .main_create_task .main_create_task_button a{
+    text-decoration: none;
+    color: black;
+}
+
+.registration{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-width: 100%;
+    min-height: 500px;
+
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+    margin-top: 10px;
+}
+
+.registration .form_registration {
+    max-width: 600px;
+    padding: 10px;
+
+    border: 1px solid black;
+    border-radius: 5px;
+
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.7);
+}
+
+.registration .form_registration input{
+    margin-bottom: 10px;
+}

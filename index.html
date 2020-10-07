@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Runner</title>
+
+    <link rel="stylesheet" href="./src/css/style.css">
+    <link rel="stylesheet" href="./src/css/style_create_task.css">
+</head>
+<body>
+    <header>
+        <div class="header_logo_block">
+            <a href="#">
+                <h1>
+                    Task Runner
+                </h1>
+            </a>
+            
+        </div>
+        <div class="header_nav_block">
+            <ul>
+                <li>
+                    <a href="#" class="login">Log in</a>
+                </li>
+                <li>
+                    <span class="date_now"></span>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <div class="wrapper">
+        <nav>
+            <ul class="nav_list_task">
+
+            </ul>
+        </nav>
+        <main class="main_list_main_page">
+            <div class="main_tasks_block">
+                <ul class="main_task_list">
+                    
+                </ul>
+            </div>
+            <div class="main_create_task">
+                <div class="main_create_task_button">
+                    <a href="#form_create_task">
+                        <h2>+</h2>
+                    </a>
+                </div>
+            </div>
+        </main>
+    </div>
+    <section class="main_new_task_page">
+        <div class="form_create_task" id="form_create_task">
+            <label for="name_task">Название задачи: </label>
+            <input type="text" name="name_task" id="name_task">
+            <br>
+            <label for="date_task">Дата создания задачи: </label>
+            <input type="date" name="date_task" id="date_task">
+            <br>
+            <label for="end_task">Конец выполнения: </label>
+            <input type="date" name="end_task" id="end_task">
+            <br>
+            <label for="desc_task">Описание задачи: </label>
+            <br>
+            <textarea name="desc_task" id="desc_task" cols="45" rows="10"></textarea>
+            <hr>
+            <button class="create_task_btn">Создать задачу</button>
+        </div>
+    </section>
+
+    <section class="registration">
+        <div class="form_registration">
+            <label for="user_name">Имя пользователя: </label>
+            <input type="text" name="user_name" id="user_name">
+            <br>
+            <label for="user_pass">Пароль: </label>
+            <input type="password" name="user_pass" id="user_pass">
+            <br>
+            <label for="">Повторите пароль: </label>
+            <input type="text" name="repeat_pass" id="repeat_pass">
+            <hr>
+            <button class="registration_btn">Войти</button>
+        </div>
+    </section>
+
+    <footer></footer>
+
+    <script src="./src/js/header_scripts.js"></script>
+    <script src="./src/js/task.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+.main_new_task_page{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-width: 100%;
+    min-height: 500px;
+
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+    margin-top: 10px;
+}
+
+.main_new_task_page .form_create_task{
+    max-width: 600px;
+    padding: 10px;
+
+    border: 1px solid black;
+    border-radius: 5px;
+
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.7);
+}
+
+.main_new_task_page .form_create_task label{
+    margin-bottom: 10px;
+}
+
+.main_new_task_page .form_create_task input{
+    margin-bottom: 10px;
+}
+
+.task{
+
+    min-width: 200px;
+
+    padding: 10px;
+
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.7);
+
+    margin-bottom: 15px;
+}
