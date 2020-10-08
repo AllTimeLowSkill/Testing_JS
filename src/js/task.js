@@ -2,9 +2,11 @@ const create_task_btn = document.querySelector('.create_task_btn')
 const task_list = document.querySelector('.main_task_list')
 const nav_list_task = document.querySelector('.nav_list_task')
 
+let id = 0;
+let tasks = []
 
 class Task{
-
+    idx = 0
     task_name = ''
     task_date = ''
     task_end = ''
@@ -17,6 +19,7 @@ class Task{
         const end_task = document.querySelector('#end_task')
         const desc_task = document.querySelector('#desc_task')
         
+        this.idx = id
         this.task_name = name_task.value
         this.task_date = date_task.value
         this.task_end = end_task.value
@@ -26,8 +29,9 @@ class Task{
             alert('Введите корректную дату')
         }else{
             this.render()
+            id++
         }
- 
+        
     }
 
     render(){
@@ -68,6 +72,15 @@ class Task{
         }
 
         remove_task.onclick = () => {
+
+            tasks.forEach(el => {
+                if(el.task_name === this.task_name){
+                    const cur = tasks.indexOf(el)
+                    tasks.splice(cur, 1)
+                    console.log(tasks)
+                }
+            })
+
             nav_title.remove()
             li.remove()
         }
@@ -89,6 +102,14 @@ class Task{
 }
 
 create_task_btn.onclick = () => {
+    
     const task = new Task()
-    task.create_task()
+
+    tasks.push(task)
+    new_task = tasks.pop()
+    new_task.create_task()
+    tasks.push(new_task)
+    console.log(tasks)
 }
+
+
