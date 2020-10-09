@@ -15,6 +15,7 @@ class Task{
     task_end = ''
     task_desc = ''
     color = 'black'
+    isSuccess = false
 
     create_task(){
         const name_task = document.querySelector('#name_task')
@@ -31,10 +32,20 @@ class Task{
         if(this.task_end < this.task_date){
             alert('Введите корректную дату')
         }else{
+            this.render_nav_title()
             this.render()
             id++
         }
         
+    }
+
+    render_nav_title(){
+        const nav_title = document.createElement('li')
+        nav_title.className = "task_li" 
+        nav_title.textContent = this.task_name
+
+        nav_list_task.append(nav_title)
+
     }
 
     render(){
@@ -50,10 +61,7 @@ class Task{
             <p>Описание: ${this.task_desc}</p>
         `
 
-        const nav_title = document.createElement('li')
-        nav_title.textContent = this.task_name
-
-        nav_list_task.append(nav_title)
+        const nav_title = document.querySelectorAll('.task_li')
 
         const check_status = document.createElement('input')
         check_status.type = "checkbox"
@@ -66,12 +74,23 @@ class Task{
                 this.color = 'green'
                 this.isSuccess = true
                 div.style.backgroundColor = this.color
-                nav_title.style.color = this.color
+
+                nav_title.forEach(el => {
+                    if(el.textContent === this.task_name){
+                        el.style.color = "green"
+                    }
+                })
+
             }else{
                 this.color = 'white'
                 this.isSuccess = false
                 div.style.backgroundColor = this.color
-                nav_title.style.color = "black"
+
+                nav_title.forEach(el => {
+                    if(el.textContent === this.task_name){
+                        el.style.color = "black"
+                    }
+                })
             }
         }
 
@@ -85,7 +104,12 @@ class Task{
                 }
             })
 
-            nav_title.remove()
+            nav_title.forEach(el => {
+                if(el.textContent === this.task_name){
+                    el.remove()
+                }    
+            })
+
             li.remove()
         }
 
@@ -98,7 +122,11 @@ class Task{
         const task_date_end = new Date(this.task_end)
         if (`${task_date_end.getFullYear()}-${task_date_end.getMonth()}-${task_date_end.getDay()}` < `${date_now.getFullYear()}-${date_now.getMonth()}-${date_now.getDay()}`) {
             div.style.backgroundColor = "red"
-            nav_title.style.color = "red"
+            nav_title.forEach(el => {
+                if(el.textContent === this.task_name){
+                    el.style.color = 'red'
+                }
+            })
             check_status.remove()
         }
 
@@ -130,6 +158,7 @@ search_task_btn.onclick = () => {
 
     new_tasks.forEach(el => {
         el.render()
+        el.render_nav_title()
     })
 }
 
@@ -141,6 +170,7 @@ back_list_task.onclick = () => {
 
     tasks.forEach(el => {
         el.render()
+        el.render_nav_title()
     })
 }
 
