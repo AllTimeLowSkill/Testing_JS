@@ -1,6 +1,9 @@
 const create_task_btn = document.querySelector('.create_task_btn')
 const task_list = document.querySelector('.main_task_list')
 const nav_list_task = document.querySelector('.nav_list_task')
+const back_list_task = document.querySelector('.back_list_task')
+const search_task = document.querySelector('.search_task')
+const search_task_btn = document.querySelector('.search_task_btn')
 
 let id = 0;
 let tasks = []
@@ -113,20 +116,6 @@ create_task_btn.onclick = () => {
     console.log(tasks)
 }
 
-const search_task = document.querySelector('.search_task')
-const search_task_btn = document.querySelector('.search_task_btn')
-
-const get_tasks = () => {
-    const need_tasks = []
-    tasks.forEach(el => {
-        if(el.task_name === search_task.value){
-            need_tasks.push(el)
-        }
-    })
-    console.log(need_tasks)
-    return need_tasks
-}
-
 search_task_btn.onclick = () => {
     
     const task_li = document.querySelectorAll('.task_li')
@@ -143,8 +132,6 @@ search_task_btn.onclick = () => {
         el.render()
     })
 }
-
-const back_list_task = document.querySelector('.back_list_task')
 
 back_list_task.onclick = () => {
     const task_li = document.querySelectorAll('.task_li')
