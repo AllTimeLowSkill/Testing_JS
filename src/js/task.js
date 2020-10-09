@@ -37,6 +37,7 @@ class Task{
     render(){
         const li = document.createElement('li')
         const div = document.createElement('div')
+        li.className = 'task_li'
         div.className = "task"
         
         div.innerHTML = `
@@ -110,6 +111,50 @@ create_task_btn.onclick = () => {
     new_task.create_task()
     tasks.push(new_task)
     console.log(tasks)
+}
+
+const search_task = document.querySelector('.search_task')
+const search_task_btn = document.querySelector('.search_task_btn')
+
+const get_tasks = () => {
+    const need_tasks = []
+    tasks.forEach(el => {
+        if(el.task_name === search_task.value){
+            need_tasks.push(el)
+        }
+    })
+    console.log(need_tasks)
+    return need_tasks
+}
+
+search_task_btn.onclick = () => {
+    
+    const task_li = document.querySelectorAll('.task_li')
+    task_li.forEach(el => {
+        el.remove()
+    })
+
+    const new_tasks = tasks.filter(function (el) {
+        return el.task_name === search_task.value
+    })
+    console.log(new_tasks)
+
+    new_tasks.forEach(el => {
+        el.render()
+    })
+}
+
+const back_list_task = document.querySelector('.back_list_task')
+
+back_list_task.onclick = () => {
+    const task_li = document.querySelectorAll('.task_li')
+    task_li.forEach(el => {
+        el.remove()
+    })
+
+    tasks.forEach(el => {
+        el.render()
+    })
 }
 
 

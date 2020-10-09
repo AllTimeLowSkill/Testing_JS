@@ -58,15 +58,32 @@ nav ul li a{
     text-decoration: none;
 }
 
-.main_list_main_page{
+.main_wrapper{
     flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.main_wrapper .filters{
+    display: flex;
+    justify-content: space-around;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+    padding: 15px 0;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.main_list_main_page{
+    
     display: flex;
     flex-direction: column;
 
     align-items: center;
     justify-content: space-between;
 
-    min-height: 100%;
+    min-height: 650px;
 
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
