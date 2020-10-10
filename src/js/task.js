@@ -14,7 +14,7 @@ class Task{
     task_date = ''
     task_end = ''
     task_desc = ''
-    color = 'black'
+    color = 'white'
     isSuccess = false
 
     create_task(){
@@ -121,6 +121,7 @@ class Task{
         let date_now = new Date()
         const task_date_end = new Date(this.task_end)
         if (`${task_date_end.getFullYear()}-${task_date_end.getMonth()}-${task_date_end.getDay()}` < `${date_now.getFullYear()}-${date_now.getMonth()}-${date_now.getDay()}`) {
+            this.color = "red"
             div.style.backgroundColor = "red"
             nav_title.forEach(el => {
                 if(el.textContent === this.task_name){
@@ -136,11 +137,10 @@ class Task{
 create_task_btn.onclick = () => {
     
     const task = new Task()
-
+    
+    task.create_task()
     tasks.push(task)
-    new_task = tasks.pop()
-    new_task.create_task()
-    tasks.push(new_task)
+
     console.log(tasks)
 }
 
@@ -173,5 +173,95 @@ back_list_task.onclick = () => {
         el.render_nav_title()
     })
 }
+
+const isSuccess = document.querySelector('#isSuccsess')
+const isFailed = document.querySelector('#isFailed')
+const isWorking = document.querySelector('#isWorking')
+
+isSuccess.onclick = () => {
+    if(isSuccess.checked){
+        const succsess_tasks = tasks.filter(el => {
+            return el.color === "green"
+        })
+
+        const task_li = document.querySelectorAll('.task_li')
+        task_li.forEach(el => {
+            el.remove()
+        })
+
+        succsess_tasks.forEach(el => {
+            el.render()
+            el.render_nav_title()
+        })
+    }else{
+        const task_li = document.querySelectorAll('.task_li')
+        task_li.forEach(el => {
+            el.remove()
+        })
+
+        tasks.forEach(el => {
+            el.render()
+            el.render_nav_title()
+        })
+    }
+}
+
+isFailed.onclick = () => {
+    if(isFailed.checked){
+        const succsess_tasks = tasks.filter(el => {
+            return el.color === "red"
+        })
+
+        const task_li = document.querySelectorAll('.task_li')
+        task_li.forEach(el => {
+            el.remove()
+        })
+
+        succsess_tasks.forEach(el => {
+            el.render()
+            el.render_nav_title()
+        })
+    }else{
+        const task_li = document.querySelectorAll('.task_li')
+        task_li.forEach(el => {
+            el.remove()
+        })
+
+        tasks.forEach(el => {
+            el.render()
+            el.render_nav_title()
+        })
+    }
+}
+
+isWorking.onclick = () => {
+    if(isWorking.checked){
+        const succsess_tasks = tasks.filter(el => {
+            return el.color === "white"
+        })
+
+        const task_li = document.querySelectorAll('.task_li')
+        task_li.forEach(el => {
+            el.remove()
+        })
+
+        succsess_tasks.forEach(el => {
+            el.render()
+            el.render_nav_title()
+        })
+    }else{
+        const task_li = document.querySelectorAll('.task_li')
+        task_li.forEach(el => {
+            el.remove()
+        })
+
+        tasks.forEach(el => {
+            el.render()
+            el.render_nav_title()
+        })
+    }
+}
+
+
 
 
